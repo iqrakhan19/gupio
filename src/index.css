@@ -1,0 +1,147 @@
+/* ==========================================================================
+   TaskFlow Global Design System & CSS Variables
+   ========================================================================== */
+
+:root {
+  /* Brand & Neutral Colors */
+  --color-primary: #6366f1;         /* Indigo primary */
+  --color-primary-hover: #4f46e5;
+  --color-primary-light: rgba(99, 102, 241, 0.12);
+
+  --bg-body: #0b0f19;              /* Deep dark background */
+  --bg-surface: #111827;           /* Card & panel background */
+  --bg-surface-elevated: #1f2937;  /* Hover / elevated element background */
+  --bg-input: #1e293b;             /* Input and controls background */
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-focus: #6366f1;
+
+  --text-main: #f8fafc;            /* Bright white text */
+  --text-muted: #94a3b8;           /* Muted secondary text */
+  --text-subtle: #64748b;          /* Faint caption text */
+
+  /* Status Tokens */
+  --status-pending-bg: rgba(245, 158, 11, 0.12);
+  --status-pending-text: #fbbf24;
+  --status-pending-border: rgba(245, 158, 11, 0.3);
+
+  --status-progress-bg: rgba(59, 130, 246, 0.12);
+  --status-progress-text: #60a5fa;
+  --status-progress-border: rgba(59, 130, 246, 0.3);
+
+  --status-completed-bg: rgba(16, 185, 129, 0.12);
+  --status-completed-text: #34d399;
+  --status-completed-border: rgba(16, 185, 129, 0.3);
+
+  /* Priority Tokens */
+  --priority-low-bg: rgba(100, 116, 139, 0.15);
+  --priority-low-text: #94a3b8;
+  --priority-low-border: rgba(100, 116, 139, 0.3);
+
+  --priority-med-bg: rgba(234, 179, 8, 0.15);
+  --priority-med-text: #fde047;
+  --priority-med-border: rgba(234, 179, 8, 0.35);
+
+  --priority-high-bg: rgba(244, 63, 94, 0.15);
+  --priority-high-text: #fb7185;
+  --priority-high-border: rgba(244, 63, 94, 0.35);
+
+  /* Feedback Colors */
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --color-danger-light: rgba(239, 68, 68, 0.12);
+
+  --color-success: #10b981;
+  --color-success-light: rgba(16, 185, 129, 0.12);
+
+  /* Typography & Layout */
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}
+
+/* ==========================================================================
+   CSS Reset
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100vh;
+  font-family: var(--font-family);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base button styles */
+button {
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Base input & select styles */
+input, select, textarea {
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.625rem 0.875rem;
+  width: 100%;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-subtle);
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-body);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-surface-elevated);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-subtle);
+}
